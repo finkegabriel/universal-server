@@ -4,13 +4,13 @@
     # try
     while :
     do
-        read -s -n 4 key
+        read -s -n 4000 key
         array+=($key)
         if [[ $key = "" ]]; then 
             echo 'You pressed enter!'
             echo "${array[*]}"
+            echo "$(${array[*]})"
             unset array
-            echo "${#array[@]}"
         else
             echo "You pressed '$key'"
             echo "${#array[@]}"
