@@ -1,14 +1,23 @@
 #!/bin/sh
 
-{ # try
-    while true
+{ 
+    # try
+    while :
     do
-    echo "server on"
+    command= read -s -n 4 key
+    array+=($key)
+    if [[ $key = "" ]]; then 
+    echo 'You pressed enter!'
+    unset array
+    echo "${#array[@]}"
+    else
+    echo "You pressed '$key'"
+    echo "${#array[@]}"
+    echo $array
+    fi
     done
-    #save your output
-
-} || { # catch
-    # save log for exception 
+    #output
+} || { 
+    # catch
     echo "server end"
-
 }
